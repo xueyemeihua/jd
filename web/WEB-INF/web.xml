@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+
+    <!--请求配置映射-->
+    <!--servlet的注册,有了一个servlet程序,可以对外提供服务-->
+    <servlet>
+        <!--起个名字,要求唯一,一般就是类名-->
+        <servlet-name>LoginServlet</servlet-name>
+        <!--对外提供服务的程序的全路径,包名+类名-->
+        <servlet-class>com.sky.controller.LoginServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RegisterServlet</servlet-name>
+        <servlet-class>com.sky.controller.RegisterServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddBusServlet</servlet-name>
+        <servlet-class>com.sky.controller.AddBusServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ShowAllBusServlet</servlet-name>
+        <servlet-class>com.sky.controller.ShowAllBusServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>PersonInfoServlet</servlet-name>
+        <servlet-class>com.sky.controller.PersonInfoServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>UpPublishBusServlet</servlet-name>
+        <servlet-class>com.sky.controller.UpPublishBusServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DoUnPublishBusServlet</servlet-name>
+        <servlet-class>com.sky.controller.DoUnPublishBusServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PubBusServlet</servlet-name>
+        <servlet-class>com.sky.controller.PubBusServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DoPubBusServlet</servlet-name>
+        <servlet-class>com.sky.controller.DoPubBusServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DoPubBusServlet</servlet-name>
+        <url-pattern>/doPubBus</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PubBusServlet</servlet-name>
+        <url-pattern>/pubBus</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DoUnPublishBusServlet</servlet-name>
+        <url-pattern>/doUnPublishBus</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpPublishBusServlet</servlet-name>
+        <url-pattern>/upPublishBus</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>PersonInfoServlet</servlet-name>
+        <url-pattern>/personInfo</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>ShowAllBusServlet</servlet-name>
+        <url-pattern>/showAllBus</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddBusServlet</servlet-name>
+        <url-pattern>/addBus</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RegisterServlet</servlet-name>
+        <url-pattern>/register</url-pattern>
+    </servlet-mapping>
+
+    <!--servlet映射,当用户发起什么请求时,会访问这个程序-->
+    <servlet-mapping>
+        <!--最终访问的servlet名字-->
+        <servlet-name>LoginServlet</servlet-name>
+        <!--请求的路径-->
+        <url-pattern>/login</url-pattern>
+    </servlet-mapping>
+
+    <filter>
+        <filter-name>VolidFilter</filter-name>
+        <filter-class>com.sky.controller.VolidLoginFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>VolidFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+</web-app>
+
+
